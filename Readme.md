@@ -1,4 +1,4 @@
-#ABN AMRO Android Assignment
+#Android Assignment
 
 ##Description:
     ###Tools:
