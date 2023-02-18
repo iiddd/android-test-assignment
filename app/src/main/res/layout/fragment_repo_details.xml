@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/ownersAvatarImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,9 +42,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
+        android:text="@string/repo_fullname_description"
         app:layout_constraintStart_toEndOf="@id/ownersAvatarImageView"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView"
-        tools:text="Full name:" />
+        app:layout_constraintTop_toBottomOf="@id/nameTextView" />
 
     <TextView
         android:id="@+id/fullNameValueTextView"
@@ -59,9 +59,9 @@
         android:id="@+id/visibilityDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/repo_visibility_description"
         app:layout_constraintStart_toEndOf="@id/barrier"
-        app:layout_constraintTop_toBottomOf="@id/fullNameValueTextView"
-        tools:text="Visibility:" />
+        app:layout_constraintTop_toBottomOf="@id/fullNameValueTextView" />
 
     <TextView
         android:id="@+id/visibilityValueTextView"
@@ -76,9 +76,9 @@
         android:id="@+id/isPrivateDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/repo_private_description"
         app:layout_constraintStart_toEndOf="@id/barrier"
-        app:layout_constraintTop_toBottomOf="@id/visibilityDescriptionTextView"
-        tools:text="IsPrivate:" />
+        app:layout_constraintTop_toBottomOf="@id/visibilityDescriptionTextView" />
 
     <TextView
         android:id="@+id/isPrivateValueTextView"
@@ -93,12 +93,12 @@
         android:id="@+id/repoDescriptionDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/repo_description_description"
         app:layout_constraintEnd_toStartOf="@id/descriptionValueTextView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/barrier"
-        app:layout_constraintTop_toBottomOf="@id/isPrivateDescriptionTextView"
-        tools:text="Description:" />
+        app:layout_constraintTop_toBottomOf="@id/isPrivateDescriptionTextView" />
 
     <TextView
         android:id="@+id/descriptionValueTextView"
@@ -114,13 +114,13 @@
         tools:text="jksahdlfkjahsdlkaljshdflkasjkhgkjhg" />
 
     <Button
-        android:id="@+id/go_to_repo"
+        android:id="@+id/goToRepoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/go_to_repo_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ownersAvatarImageView"
-        app:layout_constraintTop_toBottomOf="@id/descriptionValueTextView"
-        tools:text="Go to Repo" />
+        app:layout_constraintTop_toBottomOf="@id/descriptionValueTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

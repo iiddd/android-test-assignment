@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">ABN AMRO Repos</string>
-    <string name="visibility_description">Visibility:</string>
-    <string name="isprivate_description">IsPrivate:</string>
+    <string name="repo_visibility_description">Visibility:</string>
+    <string name="repo_private_description">Private:</string>
+    <string name="repo_fullname_description">Full name:</string>
+    <string name="repo_description_description">Description:</string>
+    <string name="go_to_repo_btn_text">Go to repo</string>
 </resources>

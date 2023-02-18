@@ -19,6 +19,8 @@
         android:name="com.iiddd.abnamrorepos.ui.RepoDetailsFragment"
         android:label="Repo"
         tools:layout="@layout/fragment_repo_details">
+        <argument
+            android:name="repoId"
+            app:argType="integer" />
     </fragment>
-
 </navigation>

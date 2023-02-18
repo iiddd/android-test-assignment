@@ -9,7 +9,7 @@ import com.iiddd.abnamrorepos.databinding.ItemRepoBinding
 import com.iiddd.abnamrorepos.domain.entity.Repo
 
 class ReposAdapter(
-//    private val onRepoClickListener: (Int) -> Unit
+    private val onRepoClickListener: (Int) -> Unit
 ) : ListAdapter<Repo, RepoViewHolder>(diffCallback) {
 
     private lateinit var binding: ItemRepoBinding
@@ -19,10 +19,8 @@ class ReposAdapter(
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemRepoBinding.inflate(inflater, parent, false)
         context = parent.context
-        return RepoViewHolder(binding)
+        return RepoViewHolder(binding, onRepoClickListener)
     }
-//        onRepoClickListener = onRepoClickListener
-
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) =
         holder.bind(getItem(position))
