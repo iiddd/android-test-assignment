@@ -35,7 +35,7 @@
         android:layout_marginStart="15dp"
         app:layout_constraintStart_toEndOf="@id/ownersAvatarImageView"
         app:layout_constraintTop_toBottomOf="@id/nameTextView"
-        tools:text="Visibility:"/>
+        android:text="@string/visibility_description"/>
 
     <TextView
         android:id="@+id/visibilityValueTextView"
@@ -53,7 +53,7 @@
         android:layout_marginStart="15dp"
         app:layout_constraintStart_toEndOf="@id/ownersAvatarImageView"
         app:layout_constraintTop_toBottomOf="@id/visibilityDescriptionTextView"
-        tools:text="IsPrivate:"/>
+        android:text="@string/isprivate_description"/>
 
     <TextView
         android:id="@+id/isPrivateValueTextView"

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ABN AMRO Repos</string>
+    <string name="visibility_description">Visibility:</string>
+    <string name="isprivate_description">IsPrivate:</string>
 </resources>

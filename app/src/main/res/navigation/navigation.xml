@@ -10,23 +10,15 @@
         android:name="com.iiddd.abnamrorepos.ui.RepoListFragment"
         android:label="Repos"
         tools:layout="@layout/fragment_repos">
-
         <action
             android:id="@+id/go_to_repo"
             app:destination="@id/repoDetails" />
-
     </fragment>
-
     <fragment
         android:id="@+id/repoDetails"
         android:name="com.iiddd.abnamrorepos.ui.RepoDetailsFragment"
         android:label="Repo"
         tools:layout="@layout/fragment_repo_details">
-
-        <argument
-            android:name="repoId"
-            app:argType="Int" />
-
     </fragment>
 
 </navigation>

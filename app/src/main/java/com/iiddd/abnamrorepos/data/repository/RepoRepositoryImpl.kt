@@ -18,16 +18,14 @@ class RepoRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource
 ) : RepoRepository {
 
-//    override fun getById(repoId: Int) = flow {
-//        CoroutineScope(currentCoroutineContext()).launch {
-//            val remoteRepo = remoteDataSource.
-//        }
-//    }
+    override fun getById(repoId: Int) = flow {
+        emitAll(localDataSource.getById(repoId))
+    }
 
     override fun getAll(limit: Int) = flow {
         CoroutineScope(currentCoroutineContext()).launch {
             val remoteRepos = remoteDataSource.getAll()
-            remoteRepos?.forEach { localDataSource.mergeOrInsert(it)}
+            remoteRepos?.forEach { localDataSource.mergeOrInsert(it) }
         }
         emitAll(localDataSource.getAll(limit).map { list -> list.sortByName() })
     }
