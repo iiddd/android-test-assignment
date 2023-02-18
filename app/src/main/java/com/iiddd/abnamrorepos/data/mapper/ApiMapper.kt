@@ -10,7 +10,7 @@ class ApiMapper @Inject constructor() {
         name = entity.name,
         fullName = entity.full_name,
         description = entity.description,
-        image = entity.owner.avatar_url,
+        imageUrl = entity.owner.avatar_url,
         visibility = entity.visibility,
         isPrivate = entity.private,
         htmlUrl = entity.html_url
