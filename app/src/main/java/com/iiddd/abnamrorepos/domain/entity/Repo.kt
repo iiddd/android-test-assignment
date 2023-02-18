@@ -8,5 +8,5 @@ data class Repo(
     val imageUrl: String?,
     val visibility: String?,
     val isPrivate: Boolean?,
-    val htmlUrl: String?
+    val htmlUrl: String
 )

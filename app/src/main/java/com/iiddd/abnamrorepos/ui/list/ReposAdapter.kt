@@ -22,7 +22,6 @@ class ReposAdapter(
         return RepoViewHolder(binding, onRepoClickListener)
     }
 
-
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) =
         holder.bind(getItem(position))
 

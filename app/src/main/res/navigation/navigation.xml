@@ -23,5 +23,4 @@
             android:name="repoId"
             app:argType="integer" />
     </fragment>
-
 </navigation>

@@ -1,5 +1,7 @@
 package com.iiddd.abnamrorepos.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,7 +46,7 @@ class RepoDetailsFragment : Fragment() {
                 isPrivateValueTextView.text = repo.isPrivate.toString()
                 descriptionValueTextView.text = repo.description
                 goToRepoButton.setOnClickListener {
-                    println("It works")
+                    navigateToExternalUrl(repo.htmlUrl)
                 }
                 repo.imageUrl?.let {
                     Glide
@@ -57,5 +59,10 @@ class RepoDetailsFragment : Fragment() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
+    }
+
+    private fun navigateToExternalUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        context?.startActivity(intent)
     }
 }

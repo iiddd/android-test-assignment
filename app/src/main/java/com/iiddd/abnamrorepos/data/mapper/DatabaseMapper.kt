@@ -36,6 +36,6 @@ class DatabaseMapper @Inject constructor() {
         ownersImage = newEntity.ownersImage ?: currentEntity?.ownersImage,
         visibility = newEntity.visibility ?: currentEntity?.visibility,
         isPrivate = newEntity.isPrivate ?: currentEntity?.isPrivate,
-        htmlUrl = newEntity.htmlUrl ?: currentEntity?.htmlUrl
+        htmlUrl = newEntity.htmlUrl
     )
 }
