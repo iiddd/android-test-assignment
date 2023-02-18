@@ -11,7 +11,7 @@ class DatabaseMapper @Inject constructor() {
         name = entity.name,
         fullName = entity.fullName,
         description = entity.description,
-        image = entity.ownersImage,
+        imageUrl = entity.ownersImage,
         visibility = entity.visibility,
         isPrivate = entity.isPrivate,
         htmlUrl = entity.htmlUrl
@@ -22,7 +22,7 @@ class DatabaseMapper @Inject constructor() {
         name = entity.name,
         fullName = entity.fullName,
         description = entity.description,
-        ownersImage = entity.image,
+        ownersImage = entity.imageUrl,
         visibility = entity.visibility,
         isPrivate = entity.isPrivate,
         htmlUrl = entity.htmlUrl

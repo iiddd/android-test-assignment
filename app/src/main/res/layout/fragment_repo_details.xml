@@ -1,136 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingStart="10dp"
+    android:paddingTop="5dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="5dp"
+    tools:context=".ui.RepoDetailsFragment">
 
-    <data>
+    <ImageView
+        android:id="@+id/ownersAvatarImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <variable
-            name="viewModel"
-            type="com.iiddd.abnamrorepos.ui.RepoDetailsViewModel" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp">
-
-        <ImageView
-            android:id="@+id/ownersAvatarImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="start"
-            app:constraint_referenced_ids="fullNameDescriptionTextView" />
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="fullNameDescriptionTextView" />
 
 
-        <TextView
-            android:id="@+id/nameTextView"
-            style="@style/TextAppearance.AppCompat.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/barrier"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="ABN AMRO Repo Name" />
+    <TextView
+        android:id="@+id/nameTextView"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="ABN AMRO Repo Name" />
 
-        <TextView
-            android:id="@+id/fullNameDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            app:layout_constraintStart_toEndOf="@id/ownersAvatarImageView"
-            app:layout_constraintTop_toBottomOf="@id/nameTextView"
-            tools:text="Full name:" />
+    <TextView
+        android:id="@+id/fullNameDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@id/ownersAvatarImageView"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+        tools:text="Full name:" />
 
-        <TextView
-            android:id="@+id/fullNameValueTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            app:layout_constraintStart_toEndOf="@id/visibilityDescriptionTextView"
-            app:layout_constraintTop_toBottomOf="@id/nameTextView"
-            tools:text="abn-amro-app" />
+    <TextView
+        android:id="@+id/fullNameValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@id/visibilityDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+        tools:text="abn-amro-app" />
 
-        <TextView
-            android:id="@+id/visibilityDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/barrier"
-            app:layout_constraintTop_toBottomOf="@id/fullNameValueTextView"
-            tools:text="Visibility:" />
+    <TextView
+        android:id="@+id/visibilityDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toBottomOf="@id/fullNameValueTextView"
+        tools:text="Visibility:" />
 
-        <TextView
-            android:id="@+id/visibilityValueTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            app:layout_constraintStart_toEndOf="@id/visibilityDescriptionTextView"
-            app:layout_constraintTop_toBottomOf="@id/fullNameValueTextView"
-            tools:text="Public" />
+    <TextView
+        android:id="@+id/visibilityValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@id/visibilityDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/fullNameValueTextView"
+        tools:text="Public" />
 
-        <TextView
-            android:id="@+id/isPrivateDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/barrier"
-            app:layout_constraintTop_toBottomOf="@id/visibilityDescriptionTextView"
-            tools:text="IsPrivate:" />
+    <TextView
+        android:id="@+id/isPrivateDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toBottomOf="@id/visibilityDescriptionTextView"
+        tools:text="IsPrivate:" />
 
-        <TextView
-            android:id="@+id/isPrivateValueTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            app:layout_constraintStart_toEndOf="@id/isPrivateDescriptionTextView"
-            app:layout_constraintTop_toBottomOf="@id/visibilityValueTextView"
-            tools:text="No" />
+    <TextView
+        android:id="@+id/isPrivateValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@id/isPrivateDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/visibilityValueTextView"
+        tools:text="No" />
 
-        <TextView
-            android:id="@+id/repoDescriptionDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@id/descriptionValueTextView"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@id/barrier"
-            app:layout_constraintTop_toBottomOf="@id/isPrivateDescriptionTextView"
-            tools:text="Description:" />
+    <TextView
+        android:id="@+id/repoDescriptionDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/descriptionValueTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toBottomOf="@id/isPrivateDescriptionTextView"
+        tools:text="Description:" />
 
-        <TextView
-            android:id="@+id/descriptionValueTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@id/repoDescriptionDescriptionTextView"
-            app:layout_constraintTop_toBottomOf="@id/isPrivateValueTextView"
-            tools:text="jksahdlfkjahsdlkaljshdflkasjhdflkajalksdjfh" />
+    <TextView
+        android:id="@+id/descriptionValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/repoDescriptionDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/isPrivateValueTextView"
+        tools:text="jksahdlfkjahsdlkaljshdflkasjkhgkjhg" />
 
-        <Button
-            android:id="@+id/go_to_repo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ownersAvatarImageView"
-            app:layout_constraintTop_toBottomOf="@id/descriptionValueTextView"
-            tools:text="Go to Repo" />
+    <Button
+        android:id="@+id/go_to_repo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ownersAvatarImageView"
+        app:layout_constraintTop_toBottomOf="@id/descriptionValueTextView"
+        tools:text="Go to Repo" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

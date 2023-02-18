@@ -5,10 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.iiddd.abnamrorepos.DataBinderMapperImpl
-import com.iiddd.abnamrorepos.R
-import com.iiddd.abnamrorepos.databinding.FragmentReposBinding
 import com.iiddd.abnamrorepos.databinding.ItemRepoBinding
 import com.iiddd.abnamrorepos.domain.entity.Repo
 
@@ -23,9 +19,7 @@ class ReposAdapter(
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemRepoBinding.inflate(inflater, parent, false)
         context = parent.context
-        return RepoViewHolder(
-            binding
-        )
+        return RepoViewHolder(binding)
     }
 //        onRepoClickListener = onRepoClickListener
 
