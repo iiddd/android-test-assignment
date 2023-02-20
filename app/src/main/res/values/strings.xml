@@ -6,4 +6,6 @@
     <string name="repo_description_description">Description:</string>
     <string name="go_to_repo_btn_text">Go to repo</string>
     <string name="owners_avatar_img_description">Repo Owner\'s avatar</string>
+    <string name="retry_button_text">Retry</string>
+    <string name="try_again_text">Oops! Please try again!</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.iiddd.abnamrorepos.ui.list
+package com.iiddd.abnamrorepos.ui.list.repolist
 
 import android.content.Context
 import android.view.LayoutInflater

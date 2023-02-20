@@ -1,4 +1,4 @@
-package com.iiddd.abnamrorepos.ui.list
+package com.iiddd.abnamrorepos.ui.list.repolist
 
 data class RepoItem(
     val name: String,

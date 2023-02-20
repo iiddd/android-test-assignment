@@ -5,6 +5,6 @@ import javax.inject.Inject
 
 class GetRepoUseCase @Inject constructor(
     private val repoRepository: RepoRepository
-){
+) {
     operator fun invoke(repoId: Int) = repoRepository.getById(repoId)
 }
