@@ -6,7 +6,7 @@ data class Repo(
     val fullName: String?,
     val description: String?,
     val imageUrl: String?,
-    val visibility: String?,
-    val isPrivate: Boolean?,
+    val visibility: String,
+    val isPrivate: Boolean,
     val htmlUrl: String
 )

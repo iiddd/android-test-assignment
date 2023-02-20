@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.iiddd.abnamrorepos.databinding.ItemRepoBinding
 import com.iiddd.abnamrorepos.domain.entity.Repo
+import com.iiddd.abnamrorepos.utils.StringUtils
 import kotlin.properties.Delegates
 
 class RepoViewHolder(
@@ -24,8 +25,8 @@ class RepoViewHolder(
         repoId = repo.id
         binding.apply {
             nameTextView.text = repo.name
-            visibilityValueTextView.text = repo.visibility
-            isPrivateValueTextView.text = repo.isPrivate.toString()
+            visibilityValueTextView.text = StringUtils.capitalize(repo.visibility)
+            isPrivateValueTextView.text = StringUtils.getIsPrivateFriendlyString(repo.isPrivate)
             when (repo.imageUrl) {
                 null -> ownersAvatarImageView.visibility = View.GONE
                 else -> {
@@ -37,4 +38,6 @@ class RepoViewHolder(
             }
         }
     }
+
+
 }
