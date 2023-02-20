@@ -1,4 +1,4 @@
-package com.iiddd.abnamrorepos.ui.list
+package com.iiddd.abnamrorepos.ui.list.repolist
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

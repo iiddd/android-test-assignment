@@ -10,10 +10,11 @@ import com.iiddd.abnamrorepos.data.paging.RepoPageLoader
 import com.iiddd.abnamrorepos.data.paging.ReposPagingSource
 import com.iiddd.abnamrorepos.domain.entity.Repo
 import com.iiddd.abnamrorepos.domain.repository.RepoRepository
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RepoRepositoryImpl @Inject constructor(
@@ -47,7 +48,7 @@ class RepoRepositoryImpl @Inject constructor(
     private suspend fun getRepos(pageIndex: Int, pageSize: Int): List<Repo> =
         withContext(Dispatchers.IO) {
             val remoteRepos = remoteDataSource.get(pageIndex, pageSize)
-            remoteRepos?.forEach { localDataSource.mergeOrInsert(it) }
+            remoteRepos.forEach { localDataSource.mergeOrInsert(it) }
             val offset = calculateOffset(pageIndex, pageSize)
             return@withContext localDataSource.get(
                 limit = pageSize,

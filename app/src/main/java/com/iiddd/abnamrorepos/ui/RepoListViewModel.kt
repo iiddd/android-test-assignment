@@ -1,6 +1,7 @@
 package com.iiddd.abnamrorepos.ui
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.iiddd.abnamrorepos.domain.entity.Repo
@@ -11,9 +12,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RepoListViewModel @Inject constructor(
-    getRepos: GetReposUseCase
+    private val getRepos: GetReposUseCase
 ) : ViewModel() {
 
-    val repos: Flow<PagingData<Repo>> =
-        getRepos().cachedIn(viewModelScope)
+    var repos: Flow<PagingData<Repo>> = getRepos().cachedIn(viewModelScope)
+
+    fun refresh() {
+        repos = getRepos().cachedIn(viewModelScope)
+    }
 }
