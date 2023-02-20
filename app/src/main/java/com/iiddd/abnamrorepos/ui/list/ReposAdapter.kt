@@ -3,14 +3,14 @@ package com.iiddd.abnamrorepos.ui.list
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import com.iiddd.abnamrorepos.databinding.ItemRepoBinding
 import com.iiddd.abnamrorepos.domain.entity.Repo
 
 class ReposAdapter(
     private val onRepoClickListener: (Int) -> Unit
-) : ListAdapter<Repo, RepoViewHolder>(diffCallback) {
+) : PagingDataAdapter<Repo, RepoViewHolder>(diffCallback) {
 
     private lateinit var binding: ItemRepoBinding
     private lateinit var context: Context
@@ -23,7 +23,7 @@ class ReposAdapter(
     }
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) =
-        holder.bind(getItem(position))
+        holder.bind(getItem(position)!!)
 
     companion object {
         private val diffCallback = object : DiffUtil.ItemCallback<Repo>() {

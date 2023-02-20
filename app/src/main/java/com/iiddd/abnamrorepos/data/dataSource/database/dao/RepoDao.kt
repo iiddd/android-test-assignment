@@ -17,8 +17,8 @@ interface RepoDao {
     suspend fun getById(id: Int): RepoEntity?
 
     @Transaction
-    @Query("SELECT * FROM Repo LIMIT :limit")
-    fun getAll(limit: Int): Flow<List<RepoEntity>>
+    @Query("SELECT * FROM Repo ORDER BY name LIMIT :limit OFFSET :offset")
+    fun get(limit: Int, offset: Int): List<RepoEntity>
 
     @Transaction
     @Query("SELECT * FROM Repo WHERE id == :id")

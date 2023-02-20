@@ -8,7 +8,7 @@ interface RepoApi {
 
     @GET("users/abnamrocoesd/repos")
     suspend fun getRepos(
-        @Query("page") pageNumber: Int,
+        @Query("page") pageIndex: Int,
         @Query("per_page") showPerPage: Int
     ): List<Repo>
 }

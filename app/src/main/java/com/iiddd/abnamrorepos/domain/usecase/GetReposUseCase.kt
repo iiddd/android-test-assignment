@@ -7,5 +7,5 @@ class GetReposUseCase @Inject constructor(
     private val repository: RepoRepository
 ) {
 
-    operator fun invoke(limit: Int) = repository.getAll(limit)
+    operator fun invoke() = repository.getPagedRepos()
 }

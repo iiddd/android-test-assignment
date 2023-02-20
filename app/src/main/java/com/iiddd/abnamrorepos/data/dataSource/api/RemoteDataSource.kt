@@ -11,12 +11,8 @@ class RemoteDataSource @Inject constructor(
     private val mapper: ApiMapper
 ) {
 
-    init{
-        println()
-    }
-
-    suspend fun getAll() = wrapCall {
-        val response = repoApi.getRepos(pageNumber = 0, showPerPage = 1000)
+    suspend fun get(pageIndex: Int, showPerPage: Int) = wrapCall {
+        val response = repoApi.getRepos(pageIndex, showPerPage)
         response.map(mapper::toDomain)
     }
 

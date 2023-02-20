@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.iiddd.abnamrorepos.databinding.FragmentReposBinding
 import com.iiddd.abnamrorepos.ui.list.ReposAdapter
@@ -20,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class RepoListFragment : Fragment() {
 
     private lateinit var binding: FragmentReposBinding
-
+    private lateinit var adapter: ReposAdapter
     private val viewModel: RepoListViewModel by viewModels()
 
     override fun onCreateView(
@@ -37,13 +39,22 @@ class RepoListFragment : Fragment() {
     }
 
     private fun bindRecyclerView() {
-        val adapter = ReposAdapter(::navigateToRepo)
-
+        adapter = ReposAdapter(::navigateToRepo)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
-        viewModel.repos.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
-        })
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.repos.collect {
+                adapter.submitData(it)
+            }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            adapter.loadStateFlow.collect {
+                val state = it.refresh
+                binding.prgBarRepos.isVisible = state is LoadState.Loading
+            }
+        }
     }
 
     private fun navigateToRepo(repoId: Int) {
