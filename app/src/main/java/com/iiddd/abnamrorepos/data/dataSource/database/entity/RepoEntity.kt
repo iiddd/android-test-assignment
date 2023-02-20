@@ -11,7 +11,7 @@ data class RepoEntity(
     val fullName: String?,
     val description: String?,
     val ownersImage: String?,
-    val visibility: String?,
-    val isPrivate: Boolean?,
+    val visibility: String,
+    val isPrivate: Boolean,
     val htmlUrl: String
 )

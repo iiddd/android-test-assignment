@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.iiddd.abnamrorepos.databinding.FragmentRepoDetailsBinding
+import com.iiddd.abnamrorepos.utils.StringUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,8 +43,8 @@ class RepoDetailsFragment : Fragment() {
             with(binding) {
                 nameTextView.text = repo.name
                 fullNameValueTextView.text = repo.fullName
-                visibilityValueTextView.text = repo.visibility
-                isPrivateValueTextView.text = repo.isPrivate.toString()
+                visibilityValueTextView.text = StringUtils.capitalize(repo.visibility)
+                isPrivateValueTextView.text = StringUtils.getIsPrivateFriendlyString(repo.isPrivate)
                 descriptionValueTextView.text = repo.description
                 goToRepoButton.setOnClickListener {
                     navigateToExternalUrl(repo.htmlUrl)

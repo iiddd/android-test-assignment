@@ -5,4 +5,5 @@
     <string name="repo_fullname_description">Full name:</string>
     <string name="repo_description_description">Description:</string>
     <string name="go_to_repo_btn_text">Go to repo</string>
+    <string name="owners_avatar_img_description">Repo Owner\'s avatar</string>
 </resources>
