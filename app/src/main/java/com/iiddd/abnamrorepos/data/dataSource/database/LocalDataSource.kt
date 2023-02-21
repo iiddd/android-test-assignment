@@ -6,7 +6,7 @@ import com.iiddd.abnamrorepos.domain.entity.Repo
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class LocalDataSource @Inject constructor(
+open class LocalDataSource @Inject constructor(
     private val repoDao: RepoDao,
     private val mapper: DatabaseMapper
 ) {

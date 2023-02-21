@@ -4,7 +4,7 @@ import com.iiddd.abnamrorepos.data.mapper.ApiMapper
 import com.iiddd.abnamrorepos.domain.entity.Repo
 import javax.inject.Inject
 
-class RemoteDataSource @Inject constructor(
+open class RemoteDataSource @Inject constructor(
     private val repoApi: RepoApi,
     private val mapper: ApiMapper
 ) {
