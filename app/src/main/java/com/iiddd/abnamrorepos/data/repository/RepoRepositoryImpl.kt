@@ -1,6 +1,5 @@
 package com.iiddd.abnamrorepos.data.repository
 
-import androidx.annotation.VisibleForTesting
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -42,7 +41,6 @@ class RepoRepositoryImpl @Inject constructor(
         ).flow
     }
 
-    @VisibleForTesting
     private fun List<Repo>.sortByName() = this.sortedBy { it.name }
 
     private suspend fun getRepos(pageIndex: Int, pageSize: Int): List<Repo> =
