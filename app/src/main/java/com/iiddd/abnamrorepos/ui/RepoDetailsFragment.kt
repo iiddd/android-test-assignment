@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.iiddd.abnamrorepos.databinding.FragmentRepoDetailsBinding
+import com.iiddd.abnamrorepos.domain.entity.Repo
 import com.iiddd.abnamrorepos.utils.StringUtils
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class RepoDetailsFragment : Fragment() {
@@ -31,7 +34,7 @@ class RepoDetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentRepoDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,27 +42,33 @@ class RepoDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.repo.observe(viewLifecycleOwner) { repo ->
-            with(binding) {
-                nameTextView.text = repo.name
-                fullNameValueTextView.text = repo.fullName
-                visibilityValueTextView.text = StringUtils.capitalize(repo.visibility)
-                isPrivateValueTextView.text = StringUtils.getIsPrivateFriendlyString(repo.isPrivate)
-                descriptionValueTextView.text = repo.description
-                goToRepoButton.setOnClickListener {
-                    navigateToExternalUrl(repo.htmlUrl)
-                }
-                repo.imageUrl?.let {
-                    Glide
-                        .with(binding.ownersAvatarImageView)
-                        .load(repo.imageUrl)
-                        .into(binding.ownersAvatarImageView)
-                }
+        lifecycleScope.launchWhenCreated {
+            viewModel.repo.collectLatest {
+                setRepo(it)
             }
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
+    }
+
+    private fun setRepo(repo: Repo) {
+        with(binding) {
+            nameTextView.text = repo.name
+            fullNameValueTextView.text = repo.fullName
+            visibilityValueTextView.text = StringUtils.capitalize(repo.visibility)
+            isPrivateValueTextView.text = StringUtils.getIsPrivateFriendlyString(repo.isPrivate)
+            descriptionValueTextView.text = repo.description
+            goToRepoButton.setOnClickListener {
+                navigateToExternalUrl(repo.htmlUrl)
+            }
+            repo.imageUrl?.let {
+                Glide
+                    .with(binding.ownersAvatarImageView)
+                    .load(repo.imageUrl)
+                    .into(binding.ownersAvatarImageView)
+            }
+        }
     }
 
     private fun navigateToExternalUrl(url: String) {

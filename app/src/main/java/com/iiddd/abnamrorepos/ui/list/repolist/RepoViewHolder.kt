@@ -24,13 +24,15 @@ class RepoViewHolder(
     fun bind(repo: Repo) {
         repoId = repo.id
         binding.apply {
-            nameTextView.text = repo.name
+            nameTextView.text = StringUtils.capitalize(repo.name)
             visibilityValueTextView.text = StringUtils.capitalize(repo.visibility)
             isPrivateValueTextView.text = StringUtils.getIsPrivateFriendlyString(repo.isPrivate)
+
             when (repo.imageUrl) {
                 null -> ownersAvatarImageView.visibility = View.GONE
                 else -> {
                     ownersAvatarImageView.visibility = View.VISIBLE
+
                     Glide.with(ownersAvatarImageView.context)
                         .load(repo.imageUrl)
                         .into(ownersAvatarImageView)
@@ -38,6 +40,4 @@ class RepoViewHolder(
             }
         }
     }
-
-
 }
